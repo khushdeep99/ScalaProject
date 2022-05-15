@@ -1,0 +1,18 @@
+GET     /                           controllers.AppController.index()
+
+
+
+# employee routing
+GET     /employees                controllers.EmployeeController.listEmployees
+
+
+
++ nocsrf
+POST    /employees                controllers.EmployeeController.createEmployee
+GET     /employees/:id            controllers.EmployeeController.readEmployee(id: reactivemongo.bson.BSONObjectID)
+PUT     /employees/:id            controllers.EmployeeController.updateEmployee(id: reactivemongo.bson.BSONObjectID)
+DELETE  /employees/:id            controllers.EmployeeController.deleteEmployee(id: reactivemongo.bson.BSONObjectID)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
